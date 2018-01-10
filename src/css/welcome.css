@@ -1,0 +1,23 @@
+.welcome {
+    max-width: 960px;
+    margin: 5% auto;
+    text-align: center;
+    background: #2A3768;
+    color: #EBD787;
+    border: .1vmin #EBD787 solid;
+    border-radius: 1vmin;
+}
+
+button.primary {
+    font-size: 30px;
+    background: #D7E7E1;
+    color: #2A3768;
+    border-radius: 10px;
+    padding: 5px 20px;
+    font-family: 'Varela Round', sans-serif;
+    cursor: pointer;
+}
+
+button.primary:hover {
+    background: #EBD787; 
+}
