@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './Card';
+import Gameover from './Gameover'
 
 class Board extends React.Component {
     constructor() {
@@ -183,10 +184,12 @@ class Board extends React.Component {
         ];
         this.animalMix = this.shuffle(this.animals);
         this.flipped = [];
+        this.pairsFound = 0;
         this.state = {
             animalMix: this.animalMix,
             doTurn: true,
-            goes: 0
+            goes: 0,
+            over: false
         }
     }
 
@@ -210,10 +213,8 @@ class Board extends React.Component {
         );
     }
 
-
     cardClick(card) {
         this.flipped.push(card);
-        console.log(this.flipped + this.flipped.length);
         if (this.flipped.length > 1) {
             this.setState({
                 doTurn: false
@@ -223,7 +224,6 @@ class Board extends React.Component {
     }
 
     checkCards() {
-        console.log(this.flipped[0].props.animal);
         if (this.flipped[0].props.animal === this.flipped[1].props.animal) {
             window.setTimeout(this.removePair, 3000);
         } else {
@@ -247,30 +247,33 @@ class Board extends React.Component {
 
     //removes pair if match is found
     removePair() {
-        console.log('Match!');
-        console.log(this.flipped);
         let animalsHeld = [...this.state.animalMix];
         let theMatch = this.flipped[0].props.animal;
 
-        let newAnimalsHeld = animalsHeld.map(function (animal) {
+        let newAnimalsHeld = animalsHeld.map(function(animal) {
             if (animal.animal === theMatch) {
                 return {};
             } else {
                 return animal;
             }
         });
+        this.pairsFound += 1;
         console.log('New Animals held: ', newAnimalsHeld);
         this.setState({
             animalMix: newAnimalsHeld,
-            doTurn: true
+            doTurn: true,
+            over: this.pairsFound === this.animals.length / 2 ? true : false
         }, () => { console.log(this.state.doTurn, this.state.animalMix); });
         this.flipped = [];
+        
+        
     }
 
     render() {
         return (
             <div className="board">
                 {this.state.animalMix.map(this.createCard)}
+                {this.state.over && <Gameover />}
             </div>
         );
     }
