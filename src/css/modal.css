@@ -1,0 +1,69 @@
+.modal {
+    position: relative;
+    max-width: 960px;
+    margin: 5% auto;
+    text-align: center;
+    background: #3A295C;
+    color: #EBD787;
+    border: 1px #F1E08F solid;
+    border-radius: 10px;   
+}
+
+.modal h1 {
+    margin: 0px
+}
+
+button {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 30px;
+    line-height: 72px;
+    width: 280px;
+    border-radius: 36px;
+    letter-spacing: -1px;
+    cursor: pointer;
+    margin-bottom: 24px;
+    transition: all 0.3s;
+}
+
+button.primary {
+    background: #95EBDF;
+    color: #123293;
+    margin-top: 38px;
+    
+    border: none;   
+}
+
+button.primary:hover {
+    background: #EBD787; 
+}
+
+button.secondary {
+    border: solid 2px #95ebdf;
+    color: #95ebdf;
+    background: none;
+}
+
+button.secondary:hover {
+    border-color: #EBD787;
+    color: #EBD787;
+}
+
+.welcome {
+    padding: 54px 0px 24px 0px;
+}
+
+.welcome .small-text {
+    margin-bottom: 30px;
+}
+
+.welcome .magoo {
+    position: absolute;
+    top: 14px;
+    left: 1.8%;
+    width: 230px;
+}
+
+.central-section {
+    width: 58%;
+    margin: 0 auto;
+}

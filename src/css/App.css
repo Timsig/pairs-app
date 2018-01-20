@@ -1,6 +1,28 @@
+
+
+
+/*COMPONENTS*************/
+.game-container {
+  width: calc((100vmin * 1.5) - 120px);
+  max-width: 940px;
+   margin: 0 auto;
+}
+
+.score-bar {
+  text-align: right;
+}
+
+.score-bar>p {
+  font-size: 36px;
+  line-height: 72px;
+  margin: 0;
+  padding: 0;
+}
+
 .board {
-  max-width: calc(100vmin * 1.5);
-  margin: 0 auto;
+  /* width: calc((100vmin * 1.5) - 72px);
+  max-width: 940px; */
+ 
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(4, 1fr);
@@ -44,8 +66,8 @@
 }
 
 .back-face {
-  background: #caa392;
-  border: 2px solid #584a1b;
+  background: #C7C6C4;
+  border: 2px solid #A1D1F9;
   transform: rotateY(180deg); 
 }
 

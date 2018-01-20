@@ -207,7 +207,7 @@ class Board extends React.Component {
             gridSpace = "";
         }
         return (
-            <div className="grid-space">
+            <div key={item.key || Date.now()} className="grid-space">
                 {gridSpace}
             </div>
         );
@@ -236,7 +236,7 @@ class Board extends React.Component {
     }
 
     turnCards() {
-        this.flipped.map(function (item) {
+        this.flipped.forEach(function (item) {
             item.turnBack();
         });
         this.flipped = [];
@@ -271,9 +271,14 @@ class Board extends React.Component {
 
     render() {
         return (
-            <div className="board">
-                {this.state.animalMix.map(this.createCard)}
-                {this.state.over && <Gameover />}
+            <div className="game-container">
+                <div className="score-bar">
+                    <p className="score"><span className="tan"> Goes: </span><span className="blue">{this.state.goes}</span></p>
+                </div>
+                <div className="board">
+                    {this.state.animalMix.map(this.createCard)}
+                    {this.state.over && <Gameover />}
+                </div>
             </div>
         );
     }

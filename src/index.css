@@ -1,6 +1,48 @@
+/*************************
+***COLOURS
+**************************/
+.tan {
+  color: #EBD787;
+}
+
+.blue {
+  color: #A1D1F9;
+}
+/**************************/
+
+* {
+  box-sizing: border-box;
+}
+
 body {
+  background: #333;
+}
+
+body, p {
   margin: 0;
   padding: 0;
   font-family: 'Varela Round', sans-serif;
-  background: #333;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #fff;
+}
+
+h1 {
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 76px;
+}
+
+h2 {
+  font-size: 48px;
+}
+
+.big-text {
+  font-size: 36px;
+}
+
+.small-text {
+  font-size: 16px;
+  line-height: 20px;
 }
