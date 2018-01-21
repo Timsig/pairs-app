@@ -6,39 +6,46 @@
     background: #3A295C;
     color: #EBD787;
     border: 1px #F1E08F solid;
-    border-radius: 10px;   
+    border-radius: 10px; 
+    padding: 54px 0px 24px 0px;  
 }
 
-.modal h1 {
+.modal h1, .modal h2 {
     margin: 0px
 }
 
 button {
+    box-sizing: border-box;
     font-family: 'Varela Round', sans-serif;
-    font-size: 30px;
-    line-height: 72px;
-    width: 280px;
+    font-size: 26px;
+    line-height: 56px;
+    width: 260px;
+    border-width: 2px;
     border-radius: 36px;
     letter-spacing: -1px;
     cursor: pointer;
-    margin-bottom: 24px;
+    margin-top: 38px;
+    margin-bottom: 38px;
     transition: all 0.3s;
+}
+
+.button-holder a:first-child button {
+    margin-right: 38px;
 }
 
 button.primary {
     background: #95EBDF;
     color: #123293;
-    margin-top: 38px;
-    
-    border: none;   
+    border-color: #95EBDF;   
 }
 
 button.primary:hover {
-    background: #EBD787; 
+    background: #EBD787;
+    border-color: #EBD787; 
 }
 
 button.secondary {
-    border: solid 2px #95ebdf;
+    border-color: #95ebdf;
     color: #95ebdf;
     background: none;
 }
@@ -48,9 +55,11 @@ button.secondary:hover {
     color: #EBD787;
 }
 
-.welcome {
+/*****************Welcome screen styles**************/
+
+/* .welcome {
     padding: 54px 0px 24px 0px;
-}
+} */
 
 .welcome .small-text {
     margin-bottom: 30px;
@@ -58,12 +67,24 @@ button.secondary:hover {
 
 .welcome .magoo {
     position: absolute;
-    top: 14px;
-    left: 1.8%;
-    width: 230px;
+    top: 54px;
+    left: 4.8%;
+    width: 12.2%;
 }
 
-.central-section {
-    width: 58%;
-    margin: 0 auto;
+.welcome .small-creature1 {
+    position: absolute;
+    top: 90px;
+    right: 4.8%;
+    width: 8.6%;
+}
+
+/************************Leaderboard styles**********************/
+
+.leaderboard {
+    max-width: 860px;
+    background-color: rgba(0, 0, 0, 0.22);
+    margin: 44px auto 0 auto;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }

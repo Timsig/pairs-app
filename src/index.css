@@ -8,6 +8,10 @@
 .blue {
   color: #A1D1F9;
 }
+
+.rouge {
+  color: #DC6235;
+}
 /**************************/
 
 * {
@@ -36,6 +40,8 @@ h1 {
 
 h2 {
   font-size: 48px;
+  font-weight: 400;
+  line-height: 54px;
 }
 
 .big-text {

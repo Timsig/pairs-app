@@ -3,7 +3,7 @@
 
 /*COMPONENTS*************/
 .game-container {
-  width: calc((100vmin * 1.5) - 120px);
+  /* width: calc((100vmin * 1.5) - 120px); */
   max-width: 940px;
    margin: 0 auto;
 }
@@ -13,8 +13,8 @@
 }
 
 .score-bar>p {
-  font-size: 36px;
-  line-height: 72px;
+  font-size: 26px;
+  line-height: 48px;
   margin: 0;
   padding: 0;
 }
@@ -41,6 +41,10 @@
   transition: 0.4s ease-in-out;
 	transform-style: preserve-3d;
   cursor: pointer;
+}
+
+.card p {
+  color: inherit;
 }
 
 .flipped {
