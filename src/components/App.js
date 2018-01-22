@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import Welcome from './Welcome';
 import Board from './Board';
 import Leaderboard from './Leaderboard';
+import Winner from './Winner';
 
 import '../css/App.css';
 
@@ -38,6 +39,7 @@ class App extends Component {
           <Route path='/leaderboard' render={(props) => (
             <Leaderboard {...props} leaders={this.state.leaders} />
           )} />
+          <Route path='/winner' component={Winner} />
         </Switch>
       </app>
     );
