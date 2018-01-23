@@ -18,18 +18,19 @@ class App extends Component {
           goes: 45},
         {name: "Edith",
           goes: 47}
-      ]
+      ],
+      currentGoes: 0
     };
   }
 
-  addLeader(newArray) {
-    this.setState({
-      leaders: newArray
-    });
+//Add newbie into leaders array at correct point and set state.
+ addLeader(newbie) {
+   alert('Here' + newbie);
   }
+
   render() {
     return (
-      <app>
+    
         <Switch>
           <Route exact path='/' component={Welcome} />
           {/* <Route path='/game' component={Board} leaders="foo" />    */}
@@ -39,9 +40,11 @@ class App extends Component {
           <Route path='/leaderboard' render={(props) => (
             <Leaderboard {...props} leaders={this.state.leaders} />
           )} />
-          <Route path='/winner' component={Winner} />
+        <Route path='/winner' render={(props) => (
+          <Winner {...props} addLeader={this.addLeader} />
+        )} />
         </Switch>
-      </app>
+      
     );
   }
 }
