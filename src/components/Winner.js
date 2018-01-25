@@ -1,6 +1,8 @@
 import React from 'react';
 import Button from './Button';
 import ButtonNonav from './ButtonNonav';
+import { Redirect } from 'react-router';
+
 
 class Winner extends React.Component {
     constructor() {
@@ -9,7 +11,8 @@ class Winner extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
 
         this.state = {
-            value: ''
+            value: '',
+            redirect: false
         };
     }
 
@@ -18,15 +21,21 @@ class Winner extends React.Component {
     }
 
     handleSubmit(event) {
-        alert('handled!' + event.target.value);
+        this.props.addLeader(this.state.value, this.props.gameGoes);
+        this.setState({
+            redirect: true
+        });
     }
     
     render() {
+        if (this.state.redirect){
+            return <Redirect push to="/leaderboard" />;
+        }
         return(
             <div className="modal enter-winner">
                 <h2>W<span className="rouge">i</span>nner<span className="rouge">!</span></h2>
                 <p>Enter your name for the Hall of fame.</p>
-                <form onSubmit={()=>this.props.addLeader(this.state.value)}>
+                <form onSubmit={this.handleSubmit}>
                     <label>
                         Your name:
                         <input type="text" onChange={this.handleChange}/>
