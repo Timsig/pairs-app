@@ -12,15 +12,27 @@ class Winner extends React.Component {
 
         this.state = {
             value: '',
-            redirect: false
+            redirect: false,
+            warn: false
         };
     }
 
+
     handleChange(event) {
-        this.setState({ value: event.target.value });
+        this.setState({ 
+            value: event.target.value,
+            warn: false 
+        });
     }
 
     handleSubmit(event) {
+        event.preventDefault();
+        if(this.state.value === "") {
+            this.setState({
+                warn: true
+            });
+            return;
+        }
         this.props.addLeader(this.state.value, this.props.gameGoes);
         this.setState({
             redirect: true
@@ -31,6 +43,7 @@ class Winner extends React.Component {
         if (this.state.redirect){
             return <Redirect push to="/leaderboard" />;
         }
+        const warn = this.state.warn ? "Please enter a name" : "";
         return(
             <div className="modal enter-winner">
                 <h2>W<span className="rouge">i</span>nner<span className="rouge">!</span></h2>
@@ -38,8 +51,9 @@ class Winner extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Your name:
-                        <input type="text" onChange={this.handleChange}/>
+                        <input autoFocus type="text" onChange={this.handleChange} placeholder={warn} />
                     </label>
+                    <input type="submit" className="hidden" />
                     <div className="button-holder">
                         <Button text="Skip this" class="secondary" to="/"/>
                         <ButtonNonav type="submit" text="Enter" class="primary" />

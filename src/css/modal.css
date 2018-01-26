@@ -58,6 +58,13 @@ button.secondary:hover {
     color: #EBD787;
 }
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
 /*****************Welcome screen styles**************/
 
 /* .welcome {
@@ -168,4 +175,8 @@ button.secondary:hover {
     color: #fff;
     padding-left: 16px;
     margin-top: 10px;
+}
+
+.enter-winner input.hidden {
+    display: none;
 }

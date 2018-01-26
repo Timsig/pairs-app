@@ -29,6 +29,11 @@
 .grid-space {
   perspective: 1000px;
 }
+
+.grid-space:hover {
+  transform: scale(1.02);
+  transition: 0.3s ease-in-out;
+} 
 /* Swap transforms over for real game */
 .card {
   position: relative;
@@ -40,9 +45,7 @@
   cursor: pointer;
 }
 
-/* .card:hover {
-  transform: scale(1.02);
-}  */
+
 
 .card p {
   color: inherit;
