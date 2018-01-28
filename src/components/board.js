@@ -1,7 +1,5 @@
 import React from 'react';
 import Card from './Card';
-import Gameover from './Gameover';
-import Winner from './Winner';
 import { Redirect } from 'react-router';
 
 class Board extends React.Component {
@@ -13,6 +11,7 @@ class Board extends React.Component {
         this.checkCards = this.checkCards.bind(this);
         this.turnCards = this.turnCards.bind(this);
         this.removePair = this.removePair.bind(this);
+        this.gameOver = this.gameOver.bind(this);
 
         this.animals = [
             {
@@ -192,7 +191,7 @@ class Board extends React.Component {
             animalMix: this.animalMix,
             doTurn: true,
             goes: 0,
-            over: false
+            route: ""
         }
     }
 
@@ -228,9 +227,9 @@ class Board extends React.Component {
 
     checkCards() {
         if (this.flipped[0].props.animal === this.flipped[1].props.animal) {
-            window.setTimeout(this.removePair, 3000);
+            window.setTimeout(this.removePair, 2000);
         } else {
-            window.setTimeout(this.turnCards, 3000);
+            window.setTimeout(this.turnCards, 2000);
         };
         let goes = this.state.goes + 1;
         this.setState({
@@ -261,24 +260,34 @@ class Board extends React.Component {
             }
         });
         this.pairsFound += 1;
-        console.log('New Animals held: ', newAnimalsHeld);
         this.setState({
             animalMix: newAnimalsHeld,
-            doTurn: true,
-            over: this.pairsFound === this.animals.length / 2 ? true : false
+            doTurn: true
         });
-        this.flipped = [];   
+        this.flipped = []; 
+        if (this.pairsFound === this.animals.length / 2) {
+            this.gameOver();
+        }  
     }
 
+    //Passes goes taken up to App, and routes to gameover or winner
     gameOver() {
-        //will also set variable to determine route to winner or other screen
-        this.props.gameGoes(this.state.goes);
+        this.props.logGameGoes(this.state.goes);
+        if(this.props.leaders.length > 4 && this.state.goes >= this.props.leaders[this.props.leaders.length - 1].goes) {
+            this.setState({
+                route: "/gameover"
+            });
+        }else{
+            this.setState({
+                route: "/winner"
+            });
+        }
+        console.log(this.state.route);
     }
 
     render() {
-        if(this.state.over){
-            this.gameOver();
-            return <Redirect push to='/winner' />;
+        if(this.state.route){
+            return <Redirect push to={this.state.route} />;
         }
         return (
             <div className="game-container">

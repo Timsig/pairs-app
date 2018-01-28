@@ -1,7 +1,6 @@
 import React from 'react';
 import '../css/modal.css';
 import Button from './Button';
-import Leaderboard from './Leaderboard';
 
 const Welcome = () => {
     return (

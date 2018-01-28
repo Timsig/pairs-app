@@ -33,7 +33,7 @@ class Winner extends React.Component {
             });
             return;
         }
-        this.props.addLeader(this.state.value, this.props.gameGoes);
+        this.props.addLeader(this.state.value);
         this.setState({
             redirect: true
         });
