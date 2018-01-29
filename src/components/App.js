@@ -50,11 +50,12 @@ addLeader(newName) {
 
 //Helper function to return index at which new leader should be added
 leaderPosition(newLeader) {
-  for (var i = 0; i < this.state.leaders.length; i += 1) {
-    if (newLeader.goes < this.state.leaders[i].goes){
-      return i;
+  let position = 0;
+  this.state.leaders.forEach(function(item, index) {
+    if (item.goes > newLeader.goes) {
+      return index;
     }
-  }  
+  });
 }
 
 render() {  

@@ -273,16 +273,19 @@ class Board extends React.Component {
     //Passes goes taken up to App, and routes to gameover or winner
     gameOver() {
         this.props.logGameGoes(this.state.goes);
-        if(this.props.leaders.length > 4 && this.state.goes >= this.props.leaders[this.props.leaders.length - 1].goes) {
-            this.setState({
-                route: "/gameover"
-            });
-        }else{
-            this.setState({
-                route: "/winner"
-            });
-        }
-        console.log(this.state.route);
+        //Temp fix
+        this.setState({
+                 route: "/gameover"
+             });
+        // if(this.props.leaders.length > 4 && this.state.goes >= this.props.leaders[this.props.leaders.length - 1].goes) {
+        //     this.setState({
+        //         route: "/gameover"
+        //     });
+        // }else{
+        //     this.setState({
+        //         route: "/winner"
+        //     });
+        // }
     }
 
     render() {

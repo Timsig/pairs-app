@@ -180,3 +180,10 @@ button:focus {
 .enter-winner input.hidden {
     display: none;
 }
+
+/********************Gameover styles**************/
+
+p.scoreline {
+    font-size: 24px;
+    line-height: 36px;
+}
