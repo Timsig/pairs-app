@@ -5,7 +5,7 @@
     text-align: center;
     background: #3A295C;
     color: #EBD787;
-    border: 1px #F1E08F solid;
+    border: 1px #EBD787 solid;
     border-radius: 10px; 
     padding: 54px 0px 24px 0px;  
 }
@@ -75,18 +75,18 @@ button:focus {
     margin-bottom: 30px;
 }
 
-.welcome .magoo {
+.welcome .cat {
     position: absolute;
-    top: 54px;
-    left: 4.8%;
-    width: 12.2%;
+    top: 50px;
+    left: 2.6%;
+    width: 14.8%;
 }
 
-.welcome .small-creature1 {
+.welcome .magoo {
     position: absolute;
-    top: 90px;
-    right: 4.8%;
-    width: 8.6%;
+    top: 50px;
+    right: 2.3%;
+    width: 12.2%;
 }
 
 /************************Leaderboard styles**********************/

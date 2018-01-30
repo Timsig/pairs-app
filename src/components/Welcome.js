@@ -12,9 +12,10 @@ const Welcome = () => {
                     <Button class="secondary" text="Quit" to="/#" />
                     <Button class="primary" text="Play the game" to="/game" />
                  </div>
-                <p className="small-text blue">Illustrations by Felix Signore, programming by Tim Signore</p>
+                <p className="small-text blue">Illustrations by Felix & Milo Signore, programming by Tim Signore</p>
+            <img className="cat" src="https://res.cloudinary.com/lwcqviihu/image/upload/v1517341454/Animals/Milo/Cat.svg" alt="cat" />
             <img className="magoo" src="https://res.cloudinary.com/lwcqviihu/image/upload/v1516314123/Animals/Magoo_rouge.svg" alt="magoo"/>
-            <img className="small-creature1" src="https://res.cloudinary.com/lwcqviihu/image/upload/v1516314124/Animals/smallCreature1_rouge.svg" alt="small-creature1" />
+            
             
         </div>
     )

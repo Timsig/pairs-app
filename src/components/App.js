@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Switch, Route, } from 'react-router-dom'
 import Welcome from './Welcome';
 import Board from './Board';
 import Leaderboard from './Leaderboard';
 import Winner from './Winner';
 import Gameover from './Gameover';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 import '../css/App.css';
 
-class App extends Component {
+class App extends React.Component {
   constructor() {
     super();
     this.setGameGoes = this.setGameGoes.bind(this);
@@ -50,7 +51,6 @@ addLeader(newName) {
 
 //Helper function to return index at which new leader should be added
 leaderPosition(newLeader) {
-  let position = 0;
   this.state.leaders.forEach(function(item, index) {
     if (item.goes > newLeader.goes) {
       return index;
@@ -61,8 +61,13 @@ leaderPosition(newLeader) {
 render() {  
   return (
       <Switch>
+      {/* <CSSTransitionGroup
+        transitionName="flip"
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={300}
+      > */}
         <Route exact path='/' component={Welcome} />
-        {/* <Route path='/game' component={Board} leaders="foo" />    */}
+      {/* </CSSTransitionGroup> */}
         <Route path='/game' render={(props) => (
         <Board {...props} leaders={this.state.leaders} logGameGoes={this.setGameGoes} />
         )} />
@@ -83,3 +88,5 @@ render() {
 }
 
 export default App;
+
+//https://medium.com/@pshrmn/a-shallow-dive-into-react-router-v4-animated-transitions-4b73f634992a

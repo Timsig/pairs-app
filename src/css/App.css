@@ -66,17 +66,16 @@
   border-radius: 1vw;
   text-align: center;
   box-sizing: border-box;
-  z-index: 10;
 }
 
 .front-face {
-  z-index: 10;
+  transform: rotateY(180deg);
 }
 
 .back-face {
   background: #C7C6C4;
-  border: 2px solid #A1D1F9;
-  transform: rotateY(180deg); 
+  border: 1px solid #EBD787;
+  z-index: 10;
 }
 
 .front-face > p {
@@ -93,16 +92,43 @@
   margin-top: 5%;
 }
 
+/***************Transitions**************/
+
+/* .flip-enter {
+  opacity: 0;
+  transform: rotateY(180deg);
+}
+
+.flip-enter.flip-enter-active {
+  opacity: 1;
+  transform: rotateY(0deg);
+  transition: all 500ms ease-in-out;
+}
+
+.flip-leave {
+  opacity: 1;
+}
+
+.flip-leave.flip-leave-active {
+  opacity: 0;
+  transform: rotateY(180deg);
+  transition: all 300ms ease-in-out;
+} */
+
 
 
 @media (orientation:portrait) {
+
+  .game-container {
+    max-width: calc((100vmax - 60px) / 1.5); 
+    margin: 0 auto;
+  }
+
   .board {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  grid-gap: 1vw;
-}
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap: 1vw;
+  }
 
 }

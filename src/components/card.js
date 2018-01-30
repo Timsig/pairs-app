@@ -47,7 +47,7 @@ class Card extends React.Component {
             //******************Pass in onClick as prop, to allow it to be conditional, dependant on 2 turned, call onClick={this.props.onClick} currently onClick={this.cardClick*/
             <div key={this.props.index} className={compClasses.join(' ')} onClick={this.cardClick}>
                 <div className="front-face" style={frontStyles}>
-                    <img src={this.props.image} />
+                    <img src={this.props.image} alt={this.props.amimal}/>
                     <p>{this.props.animal}</p>
                 </div>
                 <div className="back-face"></div>
