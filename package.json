@@ -2,6 +2,7 @@
   "name": "pairs-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://timsignore.com/pairs",
   "dependencies": {
     "re-base": "^3.2.1",
     "react": "^16.2.0",

@@ -12,7 +12,7 @@ class Card extends React.Component {
     }
 
     cardClick(event) {
-        if (this.props.doTurn) {
+        if (this.props.doTurn && !this.state.flipped) {
             this.turn();
             this.props.clickHandle(this);
         }
