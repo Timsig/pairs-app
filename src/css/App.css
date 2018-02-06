@@ -73,8 +73,10 @@
 }
 
 .back-face {
-  background: #C7C6C4;
-  border: 1px solid #EBD787;
+  /* background: #C7C6C4;
+  border: 1px solid #EBD787; */
+  background: #3A295C;
+  border: 1px #EBD787 solid;
   z-index: 10;
 }
 

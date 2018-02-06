@@ -1,5 +1,6 @@
 .modal {
     position: relative;
+    width: 90%;
     max-width: 960px;
     margin: 5% auto;
     text-align: center;
@@ -15,7 +16,10 @@
 }
 
 .button-holder {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 38px;
+    margin-bottom: 38px;
 }
 
 button {
@@ -25,16 +29,16 @@ button {
     line-height: 56px;
     width: 260px;
     border-width: 2px;
-    border-radius: 36px;
+    border-radius: 28px;
     cursor: pointer;
-    margin-top: 38px;
-    margin-bottom: 38px;
-    transition: all 0.3s;
+    margin-left: 19px;
+    margin-right: 19px;
+    transition: background 0.3s, border-color 0.3s, color 0.3s;
 }
 
-.button-holder a:first-child button {
+/* .button-holder a:first-child button {
     margin-right: 38px;
-}
+} */
 
 button.primary {
     background: #95EBDF;
@@ -186,4 +190,19 @@ button:focus {
 p.scoreline {
     font-size: 24px;
     line-height: 36px;
+}
+
+/********************Vertical viewport************/
+
+@media (orientation:portrait) {
+    .button-holder{
+        flex-direction: column-reverse;
+    }
+
+    button.secondary {
+        margin-top: 24px;
+    }
+
+
+
 }
