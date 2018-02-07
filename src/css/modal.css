@@ -8,7 +8,7 @@
     color: #EBD787;
     border: 1px #EBD787 solid;
     border-radius: 10px; 
-    padding: 54px 0px 24px 0px;  
+    padding: 54px 15px 24px 15px;  
 }
 
 .modal h1, .modal h2 {
@@ -17,8 +17,9 @@
 
 .button-holder {
     display: flex;
+    flex-wrap: wrap-reverse;
     justify-content: center;
-    margin-top: 38px;
+    margin-top: 14px;
     margin-bottom: 38px;
 }
 
@@ -31,8 +32,7 @@ button {
     border-width: 2px;
     border-radius: 28px;
     cursor: pointer;
-    margin-left: 19px;
-    margin-right: 19px;
+    margin: 24px 19px 0px 19px;
     transition: background 0.3s, border-color 0.3s, color 0.3s;
 }
 
@@ -71,15 +71,21 @@ button:focus {
 
 /*****************Welcome screen styles**************/
 
-/* .welcome {
-    padding: 54px 0px 24px 0px;
-} */
+.welcome-grid {
+    display: grid;
+    grid-template-columns: 15% auto 15%;
+}
 
 .welcome .small-text {
     margin-bottom: 30px;
 }
 
-.welcome .cat {
+.welcome img {
+    position: relative;
+    width: 100%;
+}
+
+/* .welcome .cat {
     position: absolute;
     top: 50px;
     left: 2.6%;
@@ -91,7 +97,7 @@ button:focus {
     top: 50px;
     right: 2.3%;
     width: 12.2%;
-}
+} */
 
 /************************Leaderboard styles**********************/
 
@@ -194,15 +200,44 @@ p.scoreline {
 
 /********************Vertical viewport************/
 
-@media (orientation:portrait) {
-    .button-holder{
+@media (orientation:portrait),
+screen and (max-width: 500px) {
+    /* .button-holder{
         flex-direction: column-reverse;
     }
 
     button.secondary {
         margin-top: 24px;
+    } */
+
+    .modal {
+        padding: 24px 15px 12px 15px;
     }
 
+    .welcome-grid {
+        grid-template-columns: 50% 50%;
+        
+    }
 
+    .centre-container {
+        grid-row: 2;
+        grid-column: 1 / 3
+    }
+
+    .cat-container {
+        grid-row: 1;
+        grid-column: 1;
+        text-align: right;
+    }
+
+    .magoo-container {
+        grid-row: 1;
+        grid-column: 2;
+        text-align: left;
+    }
+
+    .welcome-grid img {
+        max-width: 25%;
+    }
 
 }
