@@ -159,6 +159,7 @@ button:focus {
 .enter-winner form {
     margin-top: 24px;
     text-align: left;
+    z-index: 10;
 }
 
 .enter-winner label {
@@ -182,6 +183,13 @@ button:focus {
 
 .enter-winner input.hidden {
     display: none;
+}
+
+.enter-winner .moneybot {
+    position: absolute;
+    top: 24px;
+    right: 2.5%;
+    width: 20%;
 }
 
 /********************Gameover styles**************/
@@ -253,6 +261,10 @@ screen and (max-width: 500px) {
     .enter-winner input {
         line-height: 36px;
         font-size: 28px;
+    }
+
+    .enter-winner .moneybot {
+        display: none;
     }
 
 

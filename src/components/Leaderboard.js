@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import '../css/modal.css';
+// import base from '../base';
 
 class Leaderboard extends React.Component {
     constructor() {
@@ -8,6 +9,14 @@ class Leaderboard extends React.Component {
         this.renderLeaders = this.renderLeaders.bind(this);
         
     }
+
+    // componentWillMount() {
+    //     this.props.syncLeaders();
+    // }
+
+    // componentWillUnmount() {
+    //     this.props.unsynch
+    // }
 
     renderLeaders(item, i) {
         return (

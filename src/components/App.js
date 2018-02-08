@@ -5,6 +5,7 @@ import Board from './Board';
 import Leaderboard from './Leaderboard';
 import Winner from './Winner';
 import Gameover from './Gameover';
+import base from '../base';
 import { CSSTransitionGroup } from 'react-transition-group';
 
 import '../css/App.css';
@@ -15,15 +16,9 @@ class App extends React.Component {
     this.setGameGoes = this.setGameGoes.bind(this);
     this.addLeader = this.addLeader.bind(this);
     
+    
     this.state = {
-      leaders: [
-        {name: "Felix",
-          goes: 3},
-        {name: "Milo",
-          goes: 4},
-        {name: "Edith",
-          goes: 5}
-      ],
+      leaders: [],
       currentGameGoes: 0
     };
   }
@@ -32,6 +27,18 @@ setGameGoes(goes) {
   this.setState({
     currentGameGoes: goes
   });
+}
+
+componentWillMount() {
+  this.leadersRef = base.syncState('leaders', {
+    context: this,
+    state: 'leaders',
+    asArray: true
+  });
+}
+
+componentWillUnmount() {
+  base.removeBinding(this.leadersRef);
 }
 
 //Add newbie into leaders array 
@@ -65,7 +72,7 @@ render() {
         <Board {...props} leaders={this.state.leaders} logGameGoes={this.setGameGoes} />
         )} />
         <Route path='/leaderboard' render={(props) => (
-          <Leaderboard {...props} leaders={this.state.leaders} />
+          <Leaderboard {...props} leaders={this.state.leaders} syncLeaders={this.syncLeaders}/>
         )} />
         <Route path='/winner' render={(props) => (
         <Winner {...props} addLeader={this.addLeader} />
