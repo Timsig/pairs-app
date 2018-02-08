@@ -43,6 +43,8 @@
   transition: 0.4s ease-in-out;
 	transform-style: preserve-3d;
   cursor: pointer;
+  /*Temporary***************************/
+  transform: rotateY(180deg);
 }
 
 
@@ -52,7 +54,10 @@
 }
 
 .flipped {
-  transform: rotateY(180deg);
+  /*transform: rotateY(180deg);
+  Temporary********************************/
+  transform: rotateY(0deg);
+
 }
 
 .front-face, .back-face {

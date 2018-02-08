@@ -85,21 +85,10 @@ button:focus {
     width: 100%;
 }
 
-/* .welcome .cat {
-    position: absolute;
-    top: 50px;
-    left: 2.6%;
-    width: 14.8%;
-}
-
-.welcome .magoo {
-    position: absolute;
-    top: 50px;
-    right: 2.3%;
-    width: 12.2%;
-} */
-
 /************************Leaderboard styles**********************/
+.leaderboard-holder {
+    max-height: 90%;
+}
 
 .leaderboard {
     position: relative;
@@ -115,15 +104,15 @@ button:focus {
     position: absolute;
     width: 81px;
     top: 25px;
-    left: 22%;
+    left: 6%;
     z-index: 5;
 }
 
 .leaderboard-holder .small-creature2 {
     position: absolute;
-    width: 93px;
+    width: 85px;
     top: 77px;
-    right: 23%;
+    right: 4%;
     z-index: 6;
 }
 
@@ -140,13 +129,17 @@ button:focus {
     font-weight: 400;
 }
 
-.leaderboard div:first-child {
+/* .leaderboard-stats {
+    overflow-y: scroll;
+} */
+
+.leaderboard>.leaderboard-row {
     background: #A1D1F9;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 }
 
-.leaderboard div:first-child p {
+.leaderboard>.leaderboard-row p {
     color: #3A295C;
 }
 
@@ -164,19 +157,19 @@ button:focus {
 
 /************************Enterwinner styles*********************/
 .enter-winner form {
-    margin: 24px 17% 0 17%;
+    margin-top: 24px;
     text-align: left;
 }
 
 .enter-winner label {
     font-size: 24px;
     color: #91c6f7;
-    
+    margin-left: 15%;   
 }
 
 .enter-winner input {
     display: block;
-    width: 100%;
+    width: 70%;
     line-height: 58px;
     border: none;
     background-color: rgba(0, 0, 0, 0.2);
@@ -184,7 +177,7 @@ button:focus {
     font-size: 36px;
     color: #fff;
     padding-left: 16px;
-    margin-top: 10px;
+    margin: 10px 15% 0 15%;
 }
 
 .enter-winner input.hidden {
@@ -198,18 +191,12 @@ p.scoreline {
     line-height: 36px;
 }
 
-/********************Vertical viewport************/
+/********************Vertical viewport or less than 500px wide************/
 
 @media (orientation:portrait),
 screen and (max-width: 500px) {
-    /* .button-holder{
-        flex-direction: column-reverse;
-    }
-
-    button.secondary {
-        margin-top: 24px;
-    } */
-
+    
+/*******************General and welcome rules*****************/
     .modal {
         padding: 24px 15px 12px 15px;
     }
@@ -239,5 +226,34 @@ screen and (max-width: 500px) {
     .welcome-grid img {
         max-width: 25%;
     }
+
+    /************************Leadeboard rules*******************/
+    .leaderboard-holder img {
+        display: none;
+    }
+
+    .leaderboard-row {
+        padding: 0px 24px 0px 24px;
+    }
+
+    .leaderboard-row p {
+        font-size: 28px;
+        line-height: 56px;
+    }
+
+    /*******************Enter winner rules*******************/
+    .enter-winner form {
+        margin: 24px 5% 0 5%;
+    }
+
+    .enter-winner label {
+        font-size: 20px;
+    }
+
+    .enter-winner input {
+        line-height: 36px;
+        font-size: 28px;
+    }
+
 
 }

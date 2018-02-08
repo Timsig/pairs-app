@@ -14,7 +14,6 @@ class App extends React.Component {
     super();
     this.setGameGoes = this.setGameGoes.bind(this);
     this.addLeader = this.addLeader.bind(this);
-    this.leaderPosition = this.leaderPosition.bind(this);
     
     this.state = {
       leaders: [
@@ -42,19 +41,13 @@ addLeader(newName) {
     goes: this.state.currentGameGoes
   }
   let leaders = [...this.state.leaders];
-  leaders.splice(this.leaderPosition(newLeader), 0, newLeader);
+  leaders.push(newLeader);
+  leaders.sort(function(a, b){
+    return a.goes - b.goes;
+  });
   leaders.length > 5 && leaders.pop();
   this.setState({
     leaders: leaders
-  });
-}
-
-//Helper function to return index at which new leader should be added
-leaderPosition(newLeader) {
-  this.state.leaders.forEach(function(item, index) {
-    if (item.goes > newLeader.goes) {
-      return index;
-    }
   });
 }
 
@@ -81,8 +74,6 @@ render() {
         <Gameover {...props} goes={this.state.currentGameGoes} />
       )} />
       </Switch>
-        
-      
     );
   }
 }

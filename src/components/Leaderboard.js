@@ -26,10 +26,12 @@ class Leaderboard extends React.Component {
                 <img className="small-creature2" src="https://res.cloudinary.com/lwcqviihu/image/upload/v1516314124/Animals/smallCreature2_rouge.svg" alt="small-creature2" />
                 <h2>H<span className="rouge">a</span>ll of f<span className="rouge">a</span>me</h2>
                 <div className="leaderboard">
-                <div className="leaderboard-row">
-                        <p></p><p>Name</p><p>Goes</p>
-                </div>
-                {this.props.leaders.map(this.renderLeaders)}
+                    <div className="leaderboard-row">
+                            <p></p><p>Name</p><p>Goes</p>
+                    </div>
+                    <div className="leaderboard-stats">
+                        {this.props.leaders.map(this.renderLeaders)}
+                    </div>
                 </div>
                 <div className="button-holder">
                     <Button class="secondary" text="Quit" to="/#" />
