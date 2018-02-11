@@ -1,14 +1,18 @@
 import React from 'react';
-import { Switch, Route, } from 'react-router-dom'
+import { withRouter, Switch, Route, } from 'react-router-dom';
 import Welcome from './Welcome';
 import Board from './Board';
 import Leaderboard from './Leaderboard';
 import Winner from './Winner';
 import Gameover from './Gameover';
+import Game from './Game';
 import base from '../base';
-import { CSSTransitionGroup } from 'react-transition-group';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import '../css/App.css';
+
+/****************************************For transitions***********/
+
 
 class App extends React.Component {
   constructor() {
@@ -58,29 +62,14 @@ addLeader(newName) {
   });
 }
 
-render() {  
+render() { 
+  
+  /****************************************For transitions***********/
+  // const locationKey = this.props.location.pathname;
+
   return (
-      <Switch>
-      {/* <CSSTransitionGroup
-        transitionName="flip"
-        transitionEnterTimeout={500}
-        transitionLeaveTimeout={300}
-      > */}
-        <Route exact path='/' component={Welcome} />
-      {/* </CSSTransitionGroup> */}
-        <Route path='/game' render={(props) => (
-        <Board {...props} leaders={this.state.leaders} logGameGoes={this.setGameGoes} />
-        )} />
-        <Route path='/leaderboard' render={(props) => (
-          <Leaderboard {...props} leaders={this.state.leaders} syncLeaders={this.syncLeaders}/>
-        )} />
-        <Route path='/winner' render={(props) => (
-        <Winner {...props} addLeader={this.addLeader} />
-      )} />
-        <Route path='/gameover' render={(props) => (
-        <Gameover {...props} goes={this.state.currentGameGoes} />
-      )} />
-      </Switch>
+    // <Layout>
+      <Game />
     );
   }
 }

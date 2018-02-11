@@ -10,14 +10,6 @@ class Leaderboard extends React.Component {
         
     }
 
-    // componentWillMount() {
-    //     this.props.syncLeaders();
-    // }
-
-    // componentWillUnmount() {
-    //     this.props.unsynch
-    // }
-
     renderLeaders(item, i) {
         return (
             <div className="leaderboard-row" key={i}>

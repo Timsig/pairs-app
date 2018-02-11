@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import ButtonNonav from './ButtonNonav';
-import { Redirect } from 'react-router';
+import { Redirect } from 'react-router-dom';
 
 
 class Winner extends React.Component {
