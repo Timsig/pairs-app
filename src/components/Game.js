@@ -1,19 +1,23 @@
 import React from 'react';
-import { withRouter, Switch, Route, } from 'react-router-dom';
 import Welcome from './Welcome';
 import Board from './Board';
 import Leaderboard from './Leaderboard';
 import Winner from './Winner';
 import Gameover from './Gameover';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { TransitionGroup, CSSTransitionGroup } from 'react-transition-group'
+import { BrowserRouter, Switch, Route, Link, withRouter } from 'react-router-dom'
 import '../css/App.css';
 
-const Game = ({ location }) => {
-    const currentKey = location.pathname.split('/')[1] || '/';
+console.log('CSSTransition: ' + CSSTransitionGroup + 'transitionGroup: ' + TransitionGroup );
 
-    return (
+const Game = withRouter(({ location }) => (
+    
         <TransitionGroup>
-            <CSSTransition key={location.key} classNames="flipIt" timeout={1000}>
+            <CSSTransitionGroup
+                key={location.key}
+                classNames='flipIt'
+                timeout={1000}
+            >
                 <Switch>
                     <Route exact path='/' component={Welcome} />
                     <Route path='/game' render={(props) => (
@@ -29,9 +33,9 @@ const Game = ({ location }) => {
                         <Gameover {...props} goes={this.state.currentGameGoes} />
                     )} />
                 </Switch>
-            </CSSTransition>
+            </CSSTransitionGroup>
         </TransitionGroup>
-    )
-}
+    ))
 
-export default withRouter(Game);
+
+export default Game;

@@ -27,48 +27,48 @@ class App extends React.Component {
     };
   }
 
-setGameGoes(goes) {
-  this.setState({
-    currentGameGoes: goes
-  });
-}
-
-componentWillMount() {
-  this.leadersRef = base.syncState('leaders', {
-    context: this,
-    state: 'leaders',
-    asArray: true
-  });
-}
-
-componentWillUnmount() {
-  base.removeBinding(this.leadersRef);
-}
-
-//Add newbie into leaders array 
-addLeader(newName) {
-  const newLeader = {
-    name: newName,
-    goes: this.state.currentGameGoes
+  setGameGoes(goes) {
+    this.setState({
+      currentGameGoes: goes
+    });
   }
-  let leaders = [...this.state.leaders];
-  leaders.push(newLeader);
-  leaders.sort(function(a, b){
-    return a.goes - b.goes;
-  });
-  leaders.length > 5 && leaders.pop();
-  this.setState({
-    leaders: leaders
-  });
-}
 
-render() { 
-  
-  /****************************************For transitions***********/
-  // const locationKey = this.props.location.pathname;
+  componentWillMount() {
+    this.leadersRef = base.syncState('leaders', {
+      context: this,
+      state: 'leaders',
+      asArray: true
+    });
+  }
 
-  return (
-    // <Layout>
+  componentWillUnmount() {
+    base.removeBinding(this.leadersRef);
+  }
+
+  //Add newbie into leaders array 
+  addLeader(newName) {
+    const newLeader = {
+      name: newName,
+      goes: this.state.currentGameGoes
+    }
+    let leaders = [...this.state.leaders];
+    leaders.push(newLeader);
+    leaders.sort(function(a, b){
+      return a.goes - b.goes;
+    });
+    leaders.length > 5 && leaders.pop();
+    this.setState({
+      leaders: leaders
+    });
+  }
+
+  render() { 
+    
+    /****************************************For transitions***********/
+    // const locationKey = this.props.location.pathname;
+
+    return (
+      // <Layout>
       <Game />
     );
   }
