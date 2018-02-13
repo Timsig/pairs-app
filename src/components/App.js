@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter, Switch, Route, } from 'react-router-dom';
 import Welcome from './Welcome';
 import Board from './Board';
 import Leaderboard from './Leaderboard';
@@ -7,7 +6,8 @@ import Winner from './Winner';
 import Gameover from './Gameover';
 import Game from './Game';
 import base from '../base';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { TransitionGroup, CSSTransitionGroup } from 'react-transition-group';
+import { BrowserRouter, Switch, Route, Link, withRouter } from 'react-router-dom';
 
 import '../css/App.css';
 
@@ -68,12 +68,34 @@ class App extends React.Component {
     // const locationKey = this.props.location.pathname;
 
     return (
-      // <Layout>
-      <Game />
+        <CSSTransitionGroup
+          key={this.props.location.key}
+          transitionName="flipIt"
+          transitionAppear={true}
+          transitionAppearTimeout={3000}
+          transitionEnterTimeout={3000}
+          transitionLeaveTimeout={3000}
+        >
+        <Switch key={this.props.location.pathname} location={this.props.location}>
+            <Route exact path='/' component={Welcome} />
+            <Route path='/game' render={(props) => (
+              <Board {...props} leaders={this.state.leaders} logGameGoes={this.setGameGoes} />
+            )} />
+            <Route path='/leaderboard' render={(props) => (
+              <Leaderboard {...props} leaders={this.state.leaders} syncLeaders={this.syncLeaders} />
+            )} />
+            <Route path='/winner' render={(props) => (
+              <Winner {...props} addLeader={this.addLeader} />
+            )} />
+            <Route path='/gameover' render={(props) => (
+              <Gameover {...props} goes={this.state.currentGameGoes} />
+            )} />
+          </Switch>
+        </CSSTransitionGroup>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
 
 //https://medium.com/@pshrmn/a-shallow-dive-into-react-router-v4-animated-transitions-4b73f634992a
