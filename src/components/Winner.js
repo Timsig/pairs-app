@@ -46,7 +46,7 @@ class Winner extends React.Component {
         return(
             <div className="modal enter-winner">
                 <h2>W<span className="rouge">i</span>nner<span className="rouge">!</span></h2>
-                <p>Enter your name for the Hall of fame.</p>
+                <p>Enter your name for the Hall of Fame.</p>
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Your name:

@@ -12,6 +12,7 @@ class Board extends React.Component {
         this.turnCards = this.turnCards.bind(this);
         this.removePair = this.removePair.bind(this);
         this.gameOver = this.gameOver.bind(this);
+        this.animateMatchedPair = this.animateMatchedPair.bind(this);
 
         this.animals = [
             {
@@ -35,69 +36,69 @@ class Board extends React.Component {
                 color: "#083EA7",
                 bg_color: "#D6E7E1"
             },
-            // {
-            //     key: 4,
-            //     animal: "turtle",
-            //     image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898860/Animals/Turtle_svg.svg",
-            //     color: "#394F98",
-            //     bg_color: "#9DB7A4"
-            // },
-            // {
-            //     key: 5,
-            //     animal: "snail",
-            //     image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898859/Animals/Snail_svg.svg",
-            //     color: "#3A275E",
-            //     bg_color: "#F39D70"
-            // },
-            // {
-            //     key: 6,
-            //     animal: "platypus",
-            //     image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898858/Animals/Platypus_svg.svg",
-            //     color: "#8C6086",
-            //     bg_color: "#9FD0FB"
-            // },
-            // {
-            //     key: 7,
-            //     animal: "shark",
-            //     image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898855/Animals/Shark_svg.svg",
-            //     color: "#C7C6C4",
-            //     bg_color: "#0B3DAA"
-            // },
-            // {
-            //     key: 8,
-            //     animal: "crab",
-            //     image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898858/Animals/SpiderCrab_svg.svg",
-            //     color: "#D7766B",
-            //     bg_color: "#ECD882"
-            // },
-            // {
-            //     key: 9,
-            //     animal: "millipede",
-            //     image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898855/Animals/Millipede_svg.svg",
-            //     color: "#9793F8",
-            //     bg_color: "#F6EBEE"
-            // },
-            // {
-            //     key: 10,
-            //     animal: "panda",
-            //     image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898858/Animals/Panda_svg.svg",
-            //     color: "#4C3B4A",
-            //     bg_color: "#AECEE0"
-            // },
-            // {
-            //     key: 11,
-            //     animal: "bat",
-            //     image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898855/Animals/Bat_svg.svg",
-            //     color: "#92EBDF",
-            //     bg_color: "#29356A"
-            // },
-            // {
-            //     key: 12,
-            //     animal: "griffin",
-            //     image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898855/Animals/Griffin_svg.svg",
-            //     color: "#4E170F",
-            //     bg_color: "#E1642C"
-            // },
+            {
+                key: 4,
+                animal: "turtle",
+                image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898860/Animals/Turtle_svg.svg",
+                color: "#394F98",
+                bg_color: "#9DB7A4"
+            },
+            {
+                key: 5,
+                animal: "snail",
+                image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898859/Animals/Snail_svg.svg",
+                color: "#3A275E",
+                bg_color: "#F39D70"
+            },
+            {
+                key: 6,
+                animal: "platypus",
+                image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898858/Animals/Platypus_svg.svg",
+                color: "#8C6086",
+                bg_color: "#9FD0FB"
+            },
+            {
+                key: 7,
+                animal: "shark",
+                image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898855/Animals/Shark_svg.svg",
+                color: "#C7C6C4",
+                bg_color: "#0B3DAA"
+            },
+            {
+                key: 8,
+                animal: "crab",
+                image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898858/Animals/SpiderCrab_svg.svg",
+                color: "#D7766B",
+                bg_color: "#ECD882"
+            },
+            {
+                key: 9,
+                animal: "millipede",
+                image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898855/Animals/Millipede_svg.svg",
+                color: "#9793F8",
+                bg_color: "#F6EBEE"
+            },
+            {
+                key: 10,
+                animal: "panda",
+                image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898858/Animals/Panda_svg.svg",
+                color: "#4C3B4A",
+                bg_color: "#AECEE0"
+            },
+            {
+                key: 11,
+                animal: "bat",
+                image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898855/Animals/Bat_svg.svg",
+                color: "#92EBDF",
+                bg_color: "#29356A"
+            },
+            {
+                key: 12,
+                animal: "griffin",
+                image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898855/Animals/Griffin_svg.svg",
+                color: "#4E170F",
+                bg_color: "#E1642C"
+            },
             {
                 key: 13,
                 animal: "sloth",
@@ -119,70 +120,70 @@ class Board extends React.Component {
                 color: "#083EA7",
                 bg_color: "#D6E7E1"
             }
-            //,
-            // {
-            //     key: 16,
-            //     animal: "turtle",
-            //     image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898860/Animals/Turtle_svg.svg",
-            //     color: "#394F98",
-            //     bg_color: "#9DB7A4"
-            // },
-            // {
-            //     key: 17,
-            //     animal: "snail",
-            //     image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898859/Animals/Snail_svg.svg",
-            //     color: "#3A275E",
-            //     bg_color: "#F39D70"
-            // },
-            // {
-            //     key: 18,
-            //     animal: "platypus",
-            //     image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898858/Animals/Platypus_svg.svg",
-            //     color: "#8C6086",
-            //     bg_color: "#9FD0FB"
-            // },
-            // {
-            //     key: 19,
-            //     animal: "shark",
-            //     image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898855/Animals/Shark_svg.svg",
-            //     color: "#C7C6C4",
-            //     bg_color: "#0B3DAA"
-            // },
-            // {
-            //     key: 20,
-            //     animal: "crab",
-            //     image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898858/Animals/SpiderCrab_svg.svg",
-            //     color: "#D7766B",
-            //     bg_color: "#ECD882"
-            // },
-            // {
-            //     key: 21,
-            //     animal: "millipede",
-            //     image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898855/Animals/Millipede_svg.svg",
-            //     color: "#9793F8",
-            //     bg_color: "#F6EBEE"
-            // },
-            // {
-            //     key: 22,
-            //     animal: "panda",
-            //     image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898858/Animals/Panda_svg.svg",
-            //     color: "#4C3B4A",
-            //     bg_color: "#AECEE0"
-            // },
-            // {
-            //     key: 23,
-            //     animal: "bat",
-            //     image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898855/Animals/Bat_svg.svg",
-            //     color: "#92EBDF",
-            //     bg_color: "#29356A"
-            // },
-            // {
-            //     key: 24,
-            //     animal: "griffin",
-            //     image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898855/Animals/Griffin_svg.svg",
-            //     color: "#4E170F",
-            //     bg_color: "#E1642C"
-            // }
+            ,
+            {
+                key: 16,
+                animal: "turtle",
+                image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898860/Animals/Turtle_svg.svg",
+                color: "#394F98",
+                bg_color: "#9DB7A4"
+            },
+            {
+                key: 17,
+                animal: "snail",
+                image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898859/Animals/Snail_svg.svg",
+                color: "#3A275E",
+                bg_color: "#F39D70"
+            },
+            {
+                key: 18,
+                animal: "platypus",
+                image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898858/Animals/Platypus_svg.svg",
+                color: "#8C6086",
+                bg_color: "#9FD0FB"
+            },
+            {
+                key: 19,
+                animal: "shark",
+                image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898855/Animals/Shark_svg.svg",
+                color: "#C7C6C4",
+                bg_color: "#0B3DAA"
+            },
+            {
+                key: 20,
+                animal: "crab",
+                image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898858/Animals/SpiderCrab_svg.svg",
+                color: "#D7766B",
+                bg_color: "#ECD882"
+            },
+            {
+                key: 21,
+                animal: "millipede",
+                image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898855/Animals/Millipede_svg.svg",
+                color: "#9793F8",
+                bg_color: "#F6EBEE"
+            },
+            {
+                key: 22,
+                animal: "panda",
+                image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898858/Animals/Panda_svg.svg",
+                color: "#4C3B4A",
+                bg_color: "#AECEE0"
+            },
+            {
+                key: 23,
+                animal: "bat",
+                image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898855/Animals/Bat_svg.svg",
+                color: "#92EBDF",
+                bg_color: "#29356A"
+            },
+            {
+                key: 24,
+                animal: "griffin",
+                image: "https://res.cloudinary.com/lwcqviihu/image/upload/v1512898855/Animals/Griffin_svg.svg",
+                color: "#4E170F",
+                bg_color: "#E1642C"
+            }
         ];
         this.animalMix = this.shuffle(this.animals);
         this.flipped = [];
@@ -190,8 +191,7 @@ class Board extends React.Component {
         this.state = {
             animalMix: this.animalMix,
             doTurn: true,
-            goes: 0,
-            route: ""
+            goes: 0
         }
     }
 
@@ -204,7 +204,7 @@ class Board extends React.Component {
         var gridSpace;
         if (item.animal) {
             gridSpace =
-                <Card index={item.key} animal={item.animal} image={item.image} color={item.color} bg_color={item.bg_color} doTurn={this.state.doTurn} clickHandle={this.cardClick} />
+                <Card index={item.key} animal={item.animal} image={item.image} color={item.color} bg_color={item.bg_color} doTurn={this.state.doTurn} clickHandle={this.cardClick} ref="childCard"/>
         } else {
             gridSpace = "";
         }
@@ -227,7 +227,8 @@ class Board extends React.Component {
 
     checkCards() {
         if (this.flipped[0].props.animal === this.flipped[1].props.animal) {
-            window.setTimeout(this.removePair, 2000);
+            window.setTimeout(this.removePair, 5000);
+            window.setTimeout(this.animateMatchedPair, 3000);            
         } else {
             window.setTimeout(this.turnCards, 2000);
         };
@@ -245,6 +246,14 @@ class Board extends React.Component {
         this.setState({
             doTurn: true
         });
+    }
+
+    //animation for matched cards
+    animateMatchedPair() {
+        this.flipped.forEach(function(item) {
+            item.animateOut();
+        });
+        
     }
 
     //removes pair if match is found
@@ -273,11 +282,8 @@ class Board extends React.Component {
     //Passes goes taken up to App, and routes to gameover or winner
     gameOver() {
         this.props.logGameGoes(this.state.goes);
-        //Temp fix
-        // this.setState({
-        //          route: "/gameover"
-        //      });
-        if(this.props.leaders.length > 4 && this.state.goes >= this.props.leaders[this.props.leaders.length - 1].goes) {
+        
+        if(this.props.leaders.length > 19 && this.state.goes >= this.props.leaders[this.props.leaders.length - 1].goes) {
             this.setState({
                 route: "/gameover"
             });

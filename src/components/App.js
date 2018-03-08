@@ -4,7 +4,7 @@ import Board from './Board';
 import Leaderboard from './Leaderboard';
 import Winner from './Winner';
 import Gameover from './Gameover';
-import Game from './Game';
+// import Game from './Game';
 import base from '../base';
 import { TransitionGroup, CSSTransitionGroup } from 'react-transition-group';
 import { BrowserRouter, Switch, Route, Link, withRouter } from 'react-router-dom';
@@ -56,7 +56,7 @@ class App extends React.Component {
     leaders.sort(function(a, b){
       return a.goes - b.goes;
     });
-    leaders.length > 5 && leaders.pop();
+    leaders.length > 20 && leaders.pop();
     this.setState({
       leaders: leaders
     });
@@ -68,15 +68,17 @@ class App extends React.Component {
     // const locationKey = this.props.location.pathname;
 
     return (
-        <CSSTransitionGroup
-          key={this.props.location.key}
-          transitionName="flipIt"
-          transitionAppear={true}
-          transitionAppearTimeout={3000}
-          transitionEnterTimeout={3000}
-          transitionLeaveTimeout={3000}
-        >
-        <Switch key={this.props.location.pathname} location={this.props.location}>
+      // <Route render={({ location }) => (
+      //   <CSSTransitionGroup
+      //     key={this.props.location.key}
+      //     transitionName="flipIt"
+      //     transitionAppear={true}
+      //     transitionAppearTimeout={3000}
+      //     transitionEnterTimeout={3000}
+      //     transitionLeaveTimeout={3000}
+      //   >
+          
+          <Switch>
             <Route exact path='/' component={Welcome} />
             <Route path='/game' render={(props) => (
               <Board {...props} leaders={this.state.leaders} logGameGoes={this.setGameGoes} />
@@ -91,11 +93,14 @@ class App extends React.Component {
               <Gameover {...props} goes={this.state.currentGameGoes} />
             )} />
           </Switch>
-        </CSSTransitionGroup>
+      //   </CSSTransitionGroup>
+      // )}
+      // />
     );
   }
 }
 
-export default withRouter(App);
+// export default withRouter(App);
+export default App;
 
 //https://medium.com/@pshrmn/a-shallow-dive-into-react-router-v4-animated-transitions-4b73f634992a

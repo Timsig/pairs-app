@@ -45,11 +45,11 @@
   padding-bottom: 100%;
   display: flex;
   border-radius: 1vw;
-  transition: 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out, opacity 2s ease-in-out;
 	transform-style: preserve-3d;
   cursor: pointer;
-  /*Temporary***************************/
-  transform: rotateY(180deg);
+  /*Temporary**************************
+  transform: rotateY(180deg);*/
 }
 
 
@@ -59,10 +59,13 @@
 }
 
 .flipped {
-  /*transform: rotateY(180deg);
-  Temporary********************************/
-  transform: rotateY(0deg);
+  transform: rotateY(180deg);
+  /*Temporary******************************
+  transform: rotateY(0deg);**/
+}
 
+.vanish {
+  opacity: 0;
 }
 
 .front-face, .back-face {
@@ -103,44 +106,6 @@
   width: 90%;
   margin-top: 5%;
 }
-
-/***************Transitions**************/
-
-.flipIt-enter {
-  opacity: 0;
-  transform: rotateY(180deg);
-  transition: all 3000ms ease-in-out;
-}
-
-.flipIt-enter.flipIt-enter-active {
-  opacity: 1;
-  transform: rotateY(0deg);
-  
-}
-
-.flipIt-appear {
-  opacity: 0;
-  transform: rotateY(180deg);
-  transition: all 3000ms ease-in-out;
-}
-
-.flipIt-appear.flipIt-appear-active {
-  opacity: 1;
-  transform: rotateY(0deg);
-  
-}
-
-.flipIt-leave {
-  opacity: 1;
-  transition: all 3000ms ease-in-out;
-}
-
-.flipIt-leave.flipIt-leave-active {
-  opacity: 0;
-  transform: rotateY(180deg);
-}
-
-
 
 @media (orientation:portrait) {
 

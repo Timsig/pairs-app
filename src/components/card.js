@@ -5,9 +5,12 @@ class Card extends React.Component {
         super();
         this.turn = this.turn.bind(this);
         this.cardClick = this.cardClick.bind(this);
+        this.turnBack = this.turnBack.bind(this);
+        this.animateOut = this.animateOut.bind(this);
 
         this.state = {
-            flipped: false
+            flipped: false,
+            disappear: false
         };
     }
 
@@ -30,6 +33,12 @@ class Card extends React.Component {
         });
     }
 
+    animateOut() {
+        this.setState({
+            disappear: true
+        });
+    }
+
     render() {
         let frontStyles = {
             color: this.props.color,
@@ -40,7 +49,10 @@ class Card extends React.Component {
         };
         let compClasses = ['card'];
         if (this.state.flipped) {
-            compClasses.push('flipped')
+            compClasses.push('flipped');
+        }
+        if (this.state.disappear) {
+            compClasses.push('vanish');
         }
 
         return (
