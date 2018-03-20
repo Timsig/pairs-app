@@ -37,7 +37,7 @@
 
 .grid-space:hover {
   transform: scale(1.02);
-  transition: 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 } 
 /* Swap transforms over for real game */
 .card {
@@ -45,14 +45,12 @@
   padding-bottom: 100%;
   display: flex;
   border-radius: 1vw;
-  transition: transform 0.4s ease-in-out, opacity 2s ease-in-out;
+  transition: transform 0.4s ease-in-out;
 	transform-style: preserve-3d;
   cursor: pointer;
   /*Temporary**************************
   transform: rotateY(180deg);*/
 }
-
-
 
 .card p {
   color: inherit;
@@ -62,10 +60,6 @@
   transform: rotateY(180deg);
   /*Temporary******************************
   transform: rotateY(0deg);**/
-}
-
-.vanish {
-  opacity: 0;
 }
 
 .front-face, .back-face {
@@ -83,6 +77,21 @@
 
 .front-face {
   transform: rotateY(180deg);
+  transition: opacity 1.5s ease-in-out 0.7s;
+}
+
+.front-face::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border-radius: 1vw;
+  box-shadow: 0px 0px 10px 2px #EBD787;
+  transition: opacity 0.7s ease-in-out;
 }
 
 .back-face {
@@ -91,6 +100,18 @@
   background: #3A295C;
   border: 1px #EBD787 solid;
   z-index: 10;
+}
+
+.vanish > .back-face{
+  visibility: hidden;
+}
+
+.vanish > .front-face{
+  opacity: 0;
+}
+
+.vanish > .front-face::after {
+  opacity: 1;
 }
 
 .front-face > p {

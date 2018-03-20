@@ -58,7 +58,7 @@ class Winner extends React.Component {
                         <ButtonNonav type="submit" text="Enter" class="primary" />
                     </div>
                 </form>
-                <img className="moneybot" src="https://res.cloudinary.com/lwcqviihu/image/upload/v1516314124/Animals/Moneybot_rouge.svg"/>
+                <img className="moneybot" alt="moneybot" src="https://res.cloudinary.com/lwcqviihu/image/upload/v1516314124/Animals/Moneybot_rouge.svg"/>
             </div>
         );
     }

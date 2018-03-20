@@ -4,11 +4,8 @@ import Board from './Board';
 import Leaderboard from './Leaderboard';
 import Winner from './Winner';
 import Gameover from './Gameover';
-// import Game from './Game';
+import { Route, Switch } from 'react-router-dom';
 import base from '../base';
-import { TransitionGroup, CSSTransitionGroup } from 'react-transition-group';
-import { BrowserRouter, Switch, Route, Link, withRouter } from 'react-router-dom';
-
 import '../css/App.css';
 
 /****************************************For transitions***********/
@@ -67,17 +64,7 @@ class App extends React.Component {
     /****************************************For transitions***********/
     // const locationKey = this.props.location.pathname;
 
-    return (
-      // <Route render={({ location }) => (
-      //   <CSSTransitionGroup
-      //     key={this.props.location.key}
-      //     transitionName="flipIt"
-      //     transitionAppear={true}
-      //     transitionAppearTimeout={3000}
-      //     transitionEnterTimeout={3000}
-      //     transitionLeaveTimeout={3000}
-      //   >
-          
+    return (    
           <Switch>
             <Route exact path='/' component={Welcome} />
             <Route path='/game' render={(props) => (
@@ -93,9 +80,6 @@ class App extends React.Component {
               <Gameover {...props} goes={this.state.currentGameGoes} />
             )} />
           </Switch>
-      //   </CSSTransitionGroup>
-      // )}
-      // />
     );
   }
 }

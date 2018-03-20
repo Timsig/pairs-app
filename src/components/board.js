@@ -227,8 +227,9 @@ class Board extends React.Component {
 
     checkCards() {
         if (this.flipped[0].props.animal === this.flipped[1].props.animal) {
-            window.setTimeout(this.removePair, 5000);
-            window.setTimeout(this.animateMatchedPair, 3000);            
+            window.setTimeout(this.animateMatchedPair, 500);  
+            window.setTimeout(this.removePair, 3000);
+                      
         } else {
             window.setTimeout(this.turnCards, 2000);
         };
